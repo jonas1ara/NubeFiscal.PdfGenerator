@@ -96,6 +96,10 @@ Es el único NuGet con soporte completo para el diseño oficial del SAT CFDI 4.0
 
 ---
 
+<img width="1009" height="746" alt="factura-ejemplo01" src="https://github.com/user-attachments/assets/b8eb6213-dd84-4ebb-9dd5-a4cfa0b2e33d" />
+
+_Representación gráfica proporcionada por el SAT_
+
 ## Instalación
 
 ```bash
