@@ -12,11 +12,10 @@ Genera representaciones impresas en PDF de **CFDIs 4.0 del SAT** de México, cum
 
 El SAT establece que toda factura electrónica (CFDI) debe poder representarse en papel o formato digital legible. Esta representación impresa debe contener de forma visible y ordenada todos los datos del comprobante, el código QR de verificación y la leyenda **"Este documento es una representación impresa de un CFDI"**.
 
-### Ejemplo de representación impresa (diseño oficial SAT)
-
 <img width="1009" height="746" alt="factura-ejemplo01" src="https://github.com/user-attachments/assets/b8eb6213-dd84-4ebb-9dd5-a4cfa0b2e33d" />
 
-_Representación gráfica proporcionada por el SAT_
+_Ejemplo de representación impresa (diseño oficial SAT)_
+
 ---
 
 ## Requisitos oficiales del SAT que cubre este paquete
