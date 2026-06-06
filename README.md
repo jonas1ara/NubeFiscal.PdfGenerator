@@ -278,4 +278,4 @@ Decidí construirlo desde cero, con el diseño correcto, y liberarlo como open s
 
 ## Licencia
 
-MIT — open source bajo [NubeFiscal](https://github.com/Nube-Fiscal).
+MIT — open source bajo [Nube Fiscal](https://github.com/Nube-Fiscal).
