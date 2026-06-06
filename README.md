@@ -18,7 +18,10 @@ _Ejemplo de representación impresa (diseño oficial SAT)_
 
 ---
 
-## Requisitos oficiales del SAT que cubre este paquete
+<details>
+<summary><strong>Requisitos oficiales del SAT que cubre este paquete</strong></summary>
+
+<br>
 
 Según el [artículo 29-A del CFF](https://www.sat.gob.mx/minisitio/Factura/solicita_requisitos.htm), la representación impresa debe incluir:
 
@@ -75,6 +78,8 @@ Para cada concepto se detalla:
 - RFC del proveedor de certificación (PAC)
 - Fecha y hora de certificación ⑧④
 - **Código QR** de verificación en el portal del SAT ⑧①
+
+</details>
 
 ---
 
