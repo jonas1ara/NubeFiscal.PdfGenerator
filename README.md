@@ -8,6 +8,14 @@ Genera representaciones impresas en PDF de **CFDIs 4.0 del SAT** de México, cum
 
 ---
 
+## ¿Por qué existe este paquete?
+
+Trabajando en un proyecto propio necesitaba generar las representaciones gráficas de CFDIs a partir de sus XMLs. El problema: **ninguna librería gratuita las generaba con el diseño oficial del SAT**. La gran mayoría de las soluciones disponibles te obligan a pagar un servicio externo y esperar que te liberen un API Key para poder usarlo.
+
+Decidí construirlo desde cero, con el diseño correcto, y liberarlo como open source para que cualquier desarrollador en México pueda usarlo sin depender de terceros ni pagar por algo que debería ser libre.
+
+---
+
 ## ¿Qué es una representación impresa de un CFDI?
 
 El SAT establece que toda factura electrónica (CFDI) debe poder representarse en papel o formato digital legible. Esta representación impresa debe contener de forma visible y ordenada todos los datos del comprobante, el código QR de verificación y la leyenda **"Este documento es una representación impresa de un CFDI"**.
