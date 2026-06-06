@@ -14,8 +14,9 @@ El SAT establece que toda factura electrónica (CFDI) debe poder representarse e
 
 ### Ejemplo de representación impresa (diseño oficial SAT)
 
-![Ejemplo de representación impresa de un CFDI 4.0](NubeFiscal.PdfGenerator/factura-ejemplo01.jpg)
+<img width="1009" height="746" alt="factura-ejemplo01" src="https://github.com/user-attachments/assets/b8eb6213-dd84-4ebb-9dd5-a4cfa0b2e33d" />
 
+_Representación gráfica proporcionada por el SAT_
 ---
 
 ## Requisitos oficiales del SAT que cubre este paquete
@@ -95,10 +96,6 @@ Es el único NuGet con soporte completo para el diseño oficial del SAT CFDI 4.0
 | CFDI 3.3 (compatibilidad) | ✅ |
 
 ---
-
-<img width="1009" height="746" alt="factura-ejemplo01" src="https://github.com/user-attachments/assets/b8eb6213-dd84-4ebb-9dd5-a4cfa0b2e33d" />
-
-_Representación gráfica proporcionada por el SAT_
 
 ## Instalación
 
