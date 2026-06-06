@@ -259,4 +259,4 @@ El paquete resuelve automáticamente las claves del SAT a su descripción comple
 
 ## Licencia
 
-MIT — open source bajo [NubeFiscal](https://github.com/NubeFiscal).
+MIT — open source bajo [NubeFiscal](https://github.com/Nube-Fiscal).
