@@ -257,8 +257,6 @@ El paquete resuelve automáticamente las claves del SAT a su descripción comple
 
 ---
 
-<<<<<<< HEAD
-=======
 ## ¿Por qué existe este paquete?
 
 Trabajando en un proyecto propio necesitaba generar las representaciones gráficas de CFDIs a partir de sus XMLs. El problema: **ninguna librería gratuita las generaba con el diseño oficial del SAT**. La gran mayoría de las soluciones disponibles te obligan a pagar un servicio externo y esperar que te liberen un API Key para poder usarlo.
@@ -267,7 +265,6 @@ Decidí construirlo desde cero, con el diseño correcto, y liberarlo como open s
 
 ---
 
->>>>>>> 757f34ada9a5160aef34bfa4bda0d773b6517ef2
 ## Contribuciones
 
 ¡Las PRs son bienvenidas! Si tienes mejoras al diseño, soporte para nuevos complementos, correcciones o cualquier idea, adelante:
@@ -279,10 +276,6 @@ Decidí construirlo desde cero, con el diseño correcto, y liberarlo como open s
 
 ---
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 757f34ada9a5160aef34bfa4bda0d773b6517ef2
 ## Licencia
 
 MIT — open source bajo [NubeFiscal](https://github.com/Nube-Fiscal).
