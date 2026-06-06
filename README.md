@@ -265,6 +265,17 @@ El paquete resuelve automáticamente las claves del SAT a su descripción comple
 
 ---
 
+## Contribuciones
+
+¡Las PRs son bienvenidas! Si tienes mejoras al diseño, soporte para nuevos complementos, correcciones o cualquier idea, adelante:
+
+1. Haz fork del repositorio
+2. Crea tu rama: `git checkout -b mi-mejora`
+3. Haz commit de tus cambios: `git commit -m "Descripción de la mejora"`
+4. Abre un Pull Request
+
+---
+
 ## Licencia
 
 MIT — open source bajo [NubeFiscal](https://github.com/Nube-Fiscal).
