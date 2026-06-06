@@ -8,14 +8,6 @@ Genera representaciones impresas en PDF de **CFDIs 4.0 del SAT** de México, cum
 
 ---
 
-## ¿Por qué existe este paquete?
-
-Trabajando en un proyecto propio necesitaba generar las representaciones gráficas de CFDIs a partir de sus XMLs. El problema: **ninguna librería gratuita las generaba con el diseño oficial del SAT**. La gran mayoría de las soluciones disponibles te obligan a pagar un servicio externo y esperar que te liberen un API Key para poder usarlo.
-
-Decidí construirlo desde cero, con el diseño correcto, y liberarlo como open source para que cualquier desarrollador en México pueda usarlo sin depender de terceros ni pagar por algo que debería ser libre.
-
----
-
 ## ¿Qué es una representación impresa de un CFDI?
 
 El SAT establece que toda factura electrónica (CFDI) debe poder representarse en papel o formato digital legible. Esta representación impresa debe contener de forma visible y ordenada todos los datos del comprobante, el código QR de verificación y la leyenda **"Este documento es una representación impresa de un CFDI"**.
@@ -264,6 +256,26 @@ El paquete resuelve automáticamente las claves del SAT a su descripción comple
 | [QRCoder](https://github.com/codebude/QRCoder) | 1.6.0 | Código QR de verificación SAT |
 
 ---
+
+## ¿Por qué existe este paquete?
+
+Trabajando en un proyecto propio necesitaba generar las representaciones gráficas de CFDIs a partir de sus XMLs. El problema: **ninguna librería gratuita las generaba con el diseño oficial del SAT**. La gran mayoría de las soluciones disponibles te obligan a pagar un servicio externo y esperar que te liberen un API Key para poder usarlo.
+
+Decidí construirlo desde cero, con el diseño correcto, y liberarlo como open source para que cualquier desarrollador en México pueda usarlo sin depender de terceros ni pagar por algo que debería ser libre.
+
+---
+
+## Contribuciones
+
+¡Las PRs son bienvenidas! Si tienes mejoras al diseño, soporte para nuevos complementos, correcciones o cualquier idea, adelante:
+
+1. Haz fork del repositorio
+2. Crea tu rama: `git checkout -b mi-mejora`
+3. Haz commit de tus cambios: `git commit -m "Descripción de la mejora"`
+4. Abre un Pull Request
+
+---
+
 
 ## Licencia
 
