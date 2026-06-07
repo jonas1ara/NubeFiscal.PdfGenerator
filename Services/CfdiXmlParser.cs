@@ -108,6 +108,8 @@ public static class CfdiXmlParser
             {
                 TryDecimal(impuestos.Attribute("TotalImpuestosTrasladados")?.Value, out var iva);
                 cfdi.TotalImpuestosTrasladados = iva;
+                TryDecimal(impuestos.Attribute("TotalImpuestosRetenidos")?.Value, out var ret);
+                cfdi.TotalImpuestosRetenidos = ret;
             }
 
             var conceptosEl = root.Element(ns + "Conceptos");
@@ -142,6 +144,22 @@ public static class CfdiXmlParser
                                 Impuesto   = tEl.Attribute("Impuesto")?.Value,
                                 TasaOCuota = tEl.Attribute("TasaOCuota")?.Value,
                                 Importe    = ti,
+                            });
+                        }
+                    }
+
+                    var cRetenciones = cImpuestos?.Element(ns + "Retenciones");
+                    if (cRetenciones != null)
+                    {
+                        foreach (var rEl in cRetenciones.Elements(ns + "Retencion"))
+                        {
+                            TryDecimal(rEl.Attribute("Importe")?.Value, out var ri);
+                            TryDecimal(rEl.Attribute("Base")?.Value,    out var rb);
+                            concepto.Retenciones.Add(new RetencionPdf
+                            {
+                                Impuesto = rEl.Attribute("Impuesto")?.Value,
+                                Base     = rb,
+                                Importe  = ri,
                             });
                         }
                     }

@@ -207,13 +207,10 @@ public static class PdfBuilder
 
             col.Item().BorderTop(0.6f).Row(row =>
             {
-                row.RelativeItem(0.58f).BorderRight(0.6f).Column(left =>
+                row.RelativeItem(0.58f).BorderRight(0.6f).BorderBottom(0.6f).Row(r =>
                 {
-                    left.Item().BorderBottom(0.6f).Row(r =>
-                    {
-                        r.ConstantItem(64.5f).Background("#CFCFCF").BorderRight(0.6f).PaddingHorizontal(2).PaddingVertical(10).AlignCenter().Text("Descripción").Bold().FontSize(6f);
-                        r.RelativeItem().PaddingHorizontal(6).BorderColor(Colors.Black).PaddingVertical(10).AlignLeft().Text(ValueOrDash(concepto.Descripcion)).FontSize(5.5f);
-                    });
+                    r.ConstantItem(64.5f).Background("#CFCFCF").BorderRight(0.6f).PaddingHorizontal(2).PaddingVertical(10).AlignCenter().Text("Descripción").Bold().FontSize(6f);
+                    r.RelativeItem().PaddingHorizontal(6).PaddingVertical(10).AlignLeft().Text(ValueOrDash(concepto.Descripcion)).FontSize(5.5f);
                 });
 
                 row.RelativeItem(0.5f).Column(right =>
@@ -228,7 +225,7 @@ public static class PdfBuilder
                         r.RelativeItem(0.9f).Background(Colors.White).PaddingVertical(0.8f).AlignCenter().Text("Importe").Bold().FontSize(6f);
                     });
 
-                    if (concepto.Traslados.Count == 0)
+                    if (concepto.Traslados.Count == 0 && concepto.Retenciones.Count == 0)
                     {
                         right.Item().Row(r =>
                         {
@@ -249,6 +246,19 @@ public static class PdfBuilder
                                 r.RelativeItem(1.1f).PaddingHorizontal(2).PaddingVertical(1).AlignCenter().Text("Tasa").FontSize(5.5f);
                                 r.RelativeItem(1.2f).PaddingHorizontal(2).PaddingVertical(1).AlignCenter().Text(FormatRate(traslado.TasaOCuota)).FontSize(5.5f);
                                 r.RelativeItem(0.9f).PaddingHorizontal(2).PaddingVertical(1).AlignCenter().Text(FormatMoney(traslado.Importe ?? 0m)).FontSize(5.5f);
+                            });
+                        }
+
+                        foreach (var ret in concepto.Retenciones)
+                        {
+                            right.Item().Row(r =>
+                            {
+                                r.RelativeItem(0.9f).PaddingHorizontal(2).PaddingVertical(1).AlignCenter().Text(MapImpuesto(ret.Impuesto)).FontSize(5.5f);
+                                r.RelativeItem(1.0f).PaddingHorizontal(2).PaddingVertical(1).AlignCenter().Text("Retención").FontSize(5.5f);
+                                r.RelativeItem(1.3f).PaddingHorizontal(2).PaddingVertical(1).AlignCenter().Text(ret.Base.HasValue ? FormatSix(ret.Base.Value) : "-").FontSize(5.5f);
+                                r.RelativeItem(1.1f).PaddingHorizontal(2).PaddingVertical(1).AlignCenter().Text("Tasa").FontSize(5.5f);
+                                r.RelativeItem(1.2f).PaddingHorizontal(2).PaddingVertical(1).AlignCenter().Text(string.Empty).FontSize(5.5f);
+                                r.RelativeItem(0.9f).PaddingHorizontal(2).PaddingVertical(1).AlignCenter().Text(FormatMoney(ret.Importe ?? 0m)).FontSize(5.5f);
                             });
                         }
                     }
@@ -310,9 +320,26 @@ public static class PdfBuilder
                     col.Item().Element(line => TotalDetailRow(line, "Impuestos trasladados", traslado.Impuesto, traslado.Tasa, traslado.Importe));
             }
 
+            var retenciones = GetRetencionesAgrupadas(cfdi);
+            if (retenciones.Count == 0 && (cfdi.TotalImpuestosRetenidos ?? 0m) != 0m)
+                col.Item().Element(line => TotalDetailRow(line, "Impuestos retenidos", string.Empty, string.Empty, -(cfdi.TotalImpuestosRetenidos ?? 0m)));
+            else
+            {
+                foreach (var ret in retenciones)
+                    col.Item().Element(line => TotalDetailRow(line, "Impuestos retenidos", ret.Impuesto, string.Empty, -ret.Importe));
+            }
+
             col.Item().Element(line => TotalDetailRow(line, "Total", string.Empty, string.Empty, cfdi.Total ?? 0m, true));
         });
     }
+
+    private static List<(string Impuesto, decimal Importe)> GetRetencionesAgrupadas(CfdiPdfData cfdi) =>
+        cfdi.Conceptos
+            .SelectMany(x => x.Retenciones)
+            .Where(x => x.Importe.HasValue)
+            .GroupBy(x => MapImpuesto(x.Impuesto))
+            .Select(g => (g.Key, g.Sum(x => x.Importe ?? 0m)))
+            .ToList();
 
     private static void ComposeFinalSection(IContainer container, CfdiPdfData cfdi, byte[] qrBytes)
     {

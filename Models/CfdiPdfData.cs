@@ -39,6 +39,7 @@ public class CfdiPdfData
     public decimal? SubTotal { get; set; }
     public decimal? Descuento { get; set; }
     public decimal? TotalImpuestosTrasladados { get; set; }
+    public decimal? TotalImpuestosRetenidos   { get; set; }
     public string? SelloSAT { get; set; }
     public string? SelloCFDI { get; set; }
     public string? CadenaOriginal { get; set; }
@@ -65,7 +66,15 @@ public class ConceptoPdf
     public decimal Importe { get; set; }
     public decimal? Descuento { get; set; }
     public string? ObjetoImp { get; set; }
-    public List<TrasladoPdf> Traslados { get; set; } = new();
+    public List<TrasladoPdf>  Traslados   { get; set; } = new();
+    public List<RetencionPdf> Retenciones { get; set; } = new();
+}
+
+public class RetencionPdf
+{
+    public string? Impuesto { get; set; }
+    public decimal? Base    { get; set; }
+    public decimal? Importe { get; set; }
 }
 
 public class TrasladoPdf

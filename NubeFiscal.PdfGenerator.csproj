@@ -8,7 +8,7 @@
 
     <!-- NuGet package metadata -->
     <PackageId>NubeFiscal.PdfGenerator</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.2</Version>
     <Authors>NubeFiscal</Authors>
     <Company>NubeFiscal</Company>
     <Product>NubeFiscal.PdfGenerator</Product>
@@ -29,7 +29,7 @@
 
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\" />
-    <None Include="..\LICENSE" Pack="true" PackagePath="\" />
+    <None Include="LICENSE" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
